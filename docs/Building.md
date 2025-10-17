@@ -2,7 +2,7 @@
 
 ### Dependencies
 
-- `InsertIcons.exe` ([source]((https://github.com/einaregilsson/InsertIcons)) is required in the project's `tools` directory for embedding icon files in the EXE. You can compile it using Visual Studio or use their provided EXE (for my own use I compiled it).
+- `InsertIcons.exe` ([source](https://github.com/einaregilsson/InsertIcons)) is required in the project's `tools` directory for embedding icon files in the EXE. You can compile it using Visual Studio or use their provided EXE (for my own use I compiled it).
 
 - Windows API Code Pack DLLs. Already included in project's `libs\bin` directory.
 
@@ -28,5 +28,6 @@
 ```
 msbuild JumplistCreator.sln /m /p:Configuration=Release /p:Platform="Any CPU"
 ```
+
 
 5. Find the output in the newly generated `dist` directory.
