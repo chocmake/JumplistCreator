@@ -43,7 +43,7 @@ Such menus have been long supported since Windows 7 but are typically only seen 
 5. This will create a new `Jumplist.ini` and automatically open it in your default text editor.
 6. Adjust the example jumplist menu categories and items with your own [customization](https://github.com/chocmake/JumplistCreator/blob/main/docs/Customization.md), then save the file and press the *Update List* button.
 7. View your jumplist menu by right-clicking the pinned Jumplist Creator taskbar item.
-	- Or alterantively, if using an older Windows version or StartAllBack's classic taskbar, can drag outward from its taskbar item.
+	- Or alternatively, if using an older Windows version or StartAllBack's classic taskbar, can drag outward from its taskbar item.
 
 https://github.com/user-attachments/assets/2dba201b-971d-4e83-8019-3e2f3b35333a
 
