@@ -4,6 +4,8 @@ Imports System.Windows.Forms
 Partial Class DefaultLaunchActionDropdown
     Inherits UserControl
 
+    Public Event DefaultLaunchActionChanged As EventHandler(Of EventArgs)
+
     Public Sub New()
         InitializeComponent()
         InitializeControl()
@@ -52,6 +54,7 @@ Partial Class DefaultLaunchActionDropdown
             End If
             IniSettings.WriteValue("DefaultLaunchAction") ' write empty value
             combo.SelectedIndex = 0
+            RaiseEvent DefaultLaunchActionChanged(Me, EventArgs.Empty)
             Return
         End If
     End Sub
@@ -93,6 +96,7 @@ Partial Class DefaultLaunchActionDropdown
             End If
 
             IniSettings.WriteValue("DefaultLaunchAction",path)
+            RaiseEvent DefaultLaunchActionChanged(Me, EventArgs.Empty)
         Else
             ' If canceling browse file dialog then revert selection to previous item
             If CustomItemIndex <> -1 Then

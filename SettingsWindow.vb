@@ -30,6 +30,7 @@ Partial Public Class SettingsWindow
         AddHandler LanguageDropdownMenu.LangChanged, AddressOf LanguageDropdownMenuSelChanged
         AddHandler ThemeDropdownMenu.ThemeChanged, AddressOf ThemeDropdownMenuSelChanged
         AddHandler MetaItemsDropdownMenu.MetaItemsChanged, AddressOf MetaItemsDropdownMenuModeChanged
+        AddHandler DefaultLaunchActionMenu.DefaultLaunchActionChanged, AddressOf DefaultLaunchActionMenuChanged
     End Sub
 
     Private Sub OkButtonClick(sender As Object, e As EventArgs)
@@ -120,6 +121,10 @@ Partial Public Class SettingsWindow
 
     Private Sub MetaItemsDropdownMenuModeChanged(sender As Object, value As Integer)
         MetaItemsUpdateShouldDisable()
+        pendingActions("UpdateJumplist") = True
+    End Sub
+
+    Private Sub DefaultLaunchActionMenuChanged(sender As Object, e As EventArgs)
         pendingActions("UpdateJumplist") = True
     End Sub
 End Class
