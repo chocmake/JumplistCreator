@@ -11,8 +11,10 @@ General section, line and comments follow INI syntax. Comments can be added by a
 - Items use `Name=Value` syntax. At the minimum the only necessary value for each jumplist item is a file/program/directory/URL target value, such as `Example program=C:\Example\app.exe`.
 
 - Emojis and Unicode are supported for values and category headings. Examples:
-	`[✨ Newest project]`
-	`ラーメン=https://en.wikipedia.org/wiki/Ramen`
+	```
+	[✨ Newest project]
+	ラーメン=https://en.wikipedia.org/wiki/Ramen
+	```
 
 - Values don't require double quotes for paths but will handle them if used.
 
@@ -23,18 +25,26 @@ General section, line and comments follow INI syntax. Comments can be added by a
 - Item values support optional additional parts:
 
 	- Command-line arguments can be added by appending `| args:` followed by the arguments. Eg:
-		`Example program=C:\Example\app.exe | args: --input="something"`
+		```
+		Example program=C:\Example\app.exe | args: --input="something"
+		```
 
 	- An icon can be defined to override the item's default icon by appending `| icon:` followed by the icon path and optional icon index (index only supported if it's an EXE/DLL). Examples:
-		`Example program=C:\Example\app.exe | icon: C:\Icons\Tool.ico`
-		`Example program=C:\Example\app.exe | icon: C:\Some tool\tool.exe`
-		`Example program=C:\Example\app.exe | icon: shell32.dll,43`
+		```
+		Example program=C:\Example\app.exe | icon: C:\Icons\Tool.ico
+  		Example program=C:\Example\app.exe | icon: C:\Some tool\tool.exe
+	  	Example program=C:\Example\app.exe | icon: shell32.dll,43
+		```
 
 	- A starting directory can be defined by appending `| startin:` followed by the path of the directory you want to the program to treat as its working directory. Eg:
-		`Example program=C:\Example\app.exe | startin: D:\My documents`
+		```
+		Example program=C:\Example\app.exe | startin: D:\My documents
+		```
 		
 	- All the above additional parts can be combined in any order, they only have to placed on the same line after the base target path. Eg:
-		`Example program=C:\Example\app.exe | args: --input="something" | icon: C:\Icons\Tool.ico`
+		```
+		Example program=C:\Example\app.exe | args: --input="something" | icon: C:\Icons\Tool.ico
+		```
 		
 ### Settings
 
@@ -53,10 +63,14 @@ Most settings can be changed via the GUI. However a few things are only definabl
 	- So if the program you're using only supports a single path for arguments you can use `%1`, while if it supports space-separated multiple paths you can use `%*`.
 
 	- You can define an entirely separate program from the program used for `DefaultLaunchAction` if wanted. Eg:
-		`DefaultLaunchActionDrop=mspaint.exe | args: %1`
+		```
+		DefaultLaunchActionDrop=mspaint.exe | args: %1
+		```
 
 	- Or if you want to use the same program you can write the same target value or use the literal placeholder string `<default>`. Eg:
-		`DefaultLaunchActionDrop=<default> | args: --input %1 --example "some other value"`
+		```
+		DefaultLaunchActionDrop=<default> | args: --input %1 --example "some other value"
+		```
 
 - `MetaItemsVisibility`. Supports one INI-only extra value: `0`. This will disable the program adding any meta jumplist items (the 'Configuration' and optional 'Update' items) to jumplists.
 	
@@ -72,3 +86,4 @@ Most settings can be changed via the GUI. However a few things are only definabl
 			```
 	
 	- Just be mindful if you set this option and then update the jumplist without any custom meta jumplist items and you also have a `DefaultLaunchAction` set you won't be able to open the Jumplist Creator GUI without using the command-line argument `JumplistCreator.exe --config`.
+
