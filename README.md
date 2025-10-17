@@ -35,7 +35,7 @@ Such menus have been long supported since Windows 7 but are typically only seen 
 
 ## Setup
 
-1. Download the zip of the latest release [here](/).
+1. Download the zip of the latest release [here](https://github.com/chocmake/JumplistCreator/releases/latest/download/JumplistCreator.zip).
 2. Unzip to some writable location. Eg: `C:\Jumplist Creator\Example`.
 3. Drag `JumplistCreator.exe` onto your Windows taskbar to pin it.
 	- Or alternatively open it then right-click its taskbar item and select *Pin to taskbar*.
