@@ -19,9 +19,9 @@ Such menus have been long supported since Windows 7 but are typically only seen 
 - Supports Windows 10 and 11.
 - Command-line arguments `--config` and `--update` can be used to launch the configuration GUI or update the jumplist.
 
-> [1] Notes on portability: necessarily writes a native maximum jumplist items value to the registry and tells Windows to create jumplists (which get stored by Windows itself as `automaticDestinations` files). Otherwise only writes to its own program directory.
+> [1] This drag-and-drop feature is only supported on W10 (or older) taskbars or on W11 with replacement taskbars like StartAllBack, since Windows 11 hasn't yet re-implemented drag-and-drop file support for taskbar items with its new taskbar. Windows also requires the program be in a closed state else drag-and-drop won't trigger.
 
-> [2] This drag-and-drop feature is only supported on W10 (or older) taskbars or on W11 with replacement taskbars like StartAllBack, since Windows 11 hasn't yet re-implemented drag-and-drop file support for taskbar items with its new taskbar. Windows also requires the program be in a closed state else drag-and-drop won't trigger.
+> [2] Notes on portability: necessarily writes a native maximum jumplist items value to the registry and tells Windows to create jumplists (which get stored by Windows itself as `automaticDestinations` files). Otherwise only writes to its own program directory.
 
 ---
 
