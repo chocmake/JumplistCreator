@@ -1,0 +1,15 @@
+Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+<Assembly: AssemblyTitle("$ProductName$")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("$ProductName$")>
+<Assembly: AssemblyCopyright("$Copyright$")>
+<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyVersion("$AssemblyVersion$")>
+<Assembly: AssemblyFileVersion("$FileVersion$")>
+
+<Assembly: ComVisible(False)>
+<Assembly: Guid("$Guid$")>

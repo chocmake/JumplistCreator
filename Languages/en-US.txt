@@ -1,0 +1,41 @@
+EditJumplist=Edit List
+GenerateJumplist=Generate List
+UpdateJumplist=Update List
+
+Settings=Settings
+Version=Version
+Website=Website
+About=About
+OK=OK
+Close=Close
+
+LangLabel=Language:
+LangDisplayName=English (US)
+
+ThemeLabel=Program theme:
+ThemeAuto=Auto
+ThemeLight=Light
+ThemeDark=Dark
+
+MaxItemsLabel=Maximum items (global):
+DefaultLaunchActionLabel=Open when program launched:
+DefaultLaunchActionItem=Default
+BrowseForFileButton=Browse for file...
+BrowseForFileWindow=Browse for file
+
+MetaListSettingsVisLabel=Configuration items:
+MetaListSettingsVisHidden=Always hidden
+MetaListSettingsVisConditional=Conditional
+MetaListSettingsVisAlways=Always visible
+MetaListSettingsUpdateItemLabel=Show update item
+
+MetaJumplistItemConfig=Configuration
+MetaJumplistItemUpdate=Update
+
+MsgJumplistFileNotFound=Jumplist INI file not present.
+MsgWriteFailureIcon=Couldn't create icon file. Check program directory write permissions. The following jumplist item icon will be blank:
+MsgWriteFailureIniGeneric=Failed to write to INI file. Check program directory write permissions.
+MsgWriteFailureIniJumplist=Failed to create jumplist INI file. Check program directory write permissions.
+MsgWriteFailureIniSettings=Failed to create settings INI file. Check program directory write permissions.
+MsgThemeLoadError=Theme load error:
+MsgCustomLaunchActionFailure=Couldn't run user-specified custom launch command. Check the path in the settings.
