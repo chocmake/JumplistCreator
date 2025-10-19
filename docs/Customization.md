@@ -45,6 +45,9 @@ General section, line and comments follow INI syntax. Comments can be added by a
 		```
 		Example program=C:\Example\app.exe | args: --input="something" | icon: C:\Icons\Tool.ico
 		```
+
+> [!TIP]
+> If an item has an invalid path it won't be added to the jumplist when updated. An example would be if accidentally adding a program with arguments for the target value, such as `Example=someprogram.exe /somearg` instead of separating the arguments into the valid standalone `args` syntax like `Example=someprogram.exe | args: /somearg`.
 		
 ### Settings
 
@@ -86,4 +89,5 @@ Most settings can be changed via the GUI. However a few things are only definabl
 			```
 	
 	- Just be mindful if you set this option and then update the jumplist without any custom meta jumplist items and you also have a `DefaultLaunchAction` set you won't be able to open the Jumplist Creator GUI without using the command-line argument `JumplistCreator.exe --config`.
+
 
