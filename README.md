@@ -85,6 +85,8 @@ https://github.com/user-attachments/assets/29b193b4-d9df-47c5-9863-f30e10c093a3
 
 - [Localization](https://github.com/chocmake/JumplistCreator/blob/main/docs/Localization.md)
 
+- [Related jumplist info](https://github.com/chocmake/JumplistCreator/wiki)
+
 ---
 
 ## Credits
