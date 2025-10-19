@@ -71,7 +71,7 @@ https://github.com/user-attachments/assets/29b193b4-d9df-47c5-9863-f30e10c093a3
 
 > Using StartAllBack's W11 taskbar which supports file drag-and-drop (and vertical alignment), Jumplist Creator here was set to launch MPC-HC Portable on click and also to accept files dropped onto the Jumplist Creator taskbar item, forwarding the file path to MPC-HC for opening.
 
-> How the grouped taskbar windows was achieved was by modifying the Windows shortcut (LNK) file used to pin Jumplist Creator to the taskbar, so its AppId matched that of MPC-HC. This made Windows consider that pinned item as being from MPC-HC, allowing its windows to be grouped into one item and enabling the special taskbar effects like video progress colors to be applied.
+> How the grouped taskbar windows was achieved was by [modifying](https://github.com/chocmake/JumplistCreator/wiki/Changing-the-AppId-of-a-Windows-shortcut) the Windows shortcut (LNK) file used to pin Jumplist Creator to the taskbar, so its AppId matched that of MPC-HC. This made Windows consider that pinned item as being from MPC-HC, allowing its windows to be grouped into one item and enabling the special taskbar effects like video progress colors to be applied.
 
 > Seen with custom icons, in addition to videos from NHK's Creative Library.
 
