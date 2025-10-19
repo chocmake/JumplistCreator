@@ -21,7 +21,7 @@ Such menus have been long supported since Windows 7 but are typically only seen 
 
 > [1] This drag-and-drop feature is only supported on W10 (or older) taskbars or on W11 with replacement taskbars like StartAllBack, since Windows 11 hasn't yet re-implemented drag-and-drop file support for taskbar items with its new taskbar. Windows also requires the program be in a closed state else drag-and-drop won't trigger.
 
-> [2] Notes on portability: necessarily writes a native maximum jumplist items value to the registry and tells Windows to create jumplists (which get stored by Windows itself as `automaticDestinations` files). Otherwise only writes to its own program directory.
+> [2] Notes on portability: necessarily writes a native maximum jumplist items value to the registry and tells Windows to create jumplists (which get stored by Windows itself as `customDestinations-ms` files). Otherwise only writes to its own program directory.
 
 ---
 
@@ -77,7 +77,7 @@ https://github.com/user-attachments/assets/29b193b4-d9df-47c5-9863-f30e10c093a3
 
 ---
 
-# Documentation
+## Documentation
 
 - [Customization](https://github.com/chocmake/JumplistCreator/blob/main/docs/Customization.md)
 
