@@ -100,6 +100,19 @@ Public Module FileUtilities
         Return sb.ToString()
     End Function
 
+    Public Function GetParentPath(input As String) As String
+        If String.IsNullOrWhiteSpace(input) Then
+            Return input
+        End If
+
+        Dim parent As DirectoryInfo = Directory.GetParent(input)
+        If parent IsNot Nothing Then
+            Return parent.FullName
+        End If
+
+        Return Path.GetPathRoot(Path.GetFullPath(input))
+    End Function
+
     Public Function LoadEmbeddedImage(name As String) As Image
         Dim asm = Assembly.GetExecutingAssembly()
         Using s = asm.GetManifestResourceStream(name)
@@ -286,11 +299,26 @@ Public Module CommandParser
         Return s
     End Function
 
-    Public Function LaunchCommand(targetPath As String, arguments As String) As Boolean
+    Public Function LaunchCommand(targetPath As String, arguments As String, startIn As String) As Boolean
+        Dim origWorkingDir As String = Environment.CurrentDirectory
+        Dim newWorkingDir As String = Nothing
+        Dim targetParent As String = GetParentPath(targetPath)
+        targetPath = FileUtilities.ResolvePath(targetPath) ' resolve any relative path to absolute so if a startIn arg is defined doesn't change the target path be to relative to that working directory
+
+        If Not String.IsNullOrEmpty(startIn) AndAlso Directory.Exists(startIn) Then
+            newWorkingDir = startIn
+        ElseIf Directory.Exists(targetParent) Then
+            ' Set the working dir to that of the target path (otherwise it'll default to Jumplist Creator's directory due to enabling UseShellExecute in ProcessStartInfo below)
+            newWorkingDir = targetParent
+        Else
+            newWorkingDir = origWorkingDir
+        End If
+
         Try
             If String.IsNullOrEmpty(arguments) Then
                 Dim psi As New ProcessStartInfo() With {
                     .FileName = targetPath,
+                    .WorkingDirectory = newWorkingDir,
                     .UseShellExecute = True}
                 Dim p As Process = Process.Start(psi)
                 SetForegroundWindow(p.MainWindowHandle) ' bring window to foreground
@@ -298,6 +326,7 @@ Public Module CommandParser
                 Dim psi As New ProcessStartInfo() With {
                     .FileName = targetPath,
                     .Arguments = arguments,
+                    .WorkingDirectory = newWorkingDir,
                     .UseShellExecute = True}
                 Dim p As Process = Process.Start(psi)
                 SetForegroundWindow(p.MainWindowHandle)
@@ -315,9 +344,10 @@ Public Module CommandParser
             Dim result As ParsedJumplistEntry = ParseValueCommand(value)
             Dim targetPath As String = result.TargetPath
             Dim arguments As String = result.Args
+            Dim startIn As String = result.StartIn
 
             If Not String.IsNullOrEmpty(targetPath) Then
-                If Not LaunchCommand(targetPath, arguments) Then
+                If Not LaunchCommand(targetPath, arguments, startIn) Then
                     AssemblyResolver.Setup()
                     Return False
                 Else

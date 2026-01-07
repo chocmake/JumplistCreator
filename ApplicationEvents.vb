@@ -46,6 +46,7 @@ Namespace My
                         Dim drop As ParsedJumplistEntry = CommandParser.ParseValueCommand(IniSettings.ReadValue("DefaultLaunchActionDrop"))
                         Dim dropTarget As String = drop.TargetPath
                         Dim dropArgs As String = drop.Args
+                        Dim dropStartIn As String = drop.StartIn
                         If Not String.IsNullOrEmpty(dropTarget) AndAlso Not String.IsNullOrEmpty(dropArgs) Then
                             If dropTarget.Equals("<Default>", StringComparison.OrdinalIgnoreCase) Then
                                 dropTarget = If(CommandParser.ParseValueCommand(IniSettings.ReadValue("DefaultLaunchAction")).TargetPath, dropTarget)
@@ -60,7 +61,7 @@ Namespace My
                             End If
 
                             ' Call launch and if fails fall back to opening regular window
-                            If Not CommandParser.LaunchCommand(dropTarget, dropArgs) Then
+                            If Not CommandParser.LaunchCommand(dropTarget, dropArgs, dropStartIn) Then
                                 AssemblyResolver.Setup()
                             End If
                         Else
