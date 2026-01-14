@@ -4,7 +4,7 @@ Jumplist Creator is a program for generating custom native Windows jumplist menu
 
 Such menus have been long supported since Windows 7 but are typically only seen for recent file lists or tasks specific to certain programs. However this useful Windows feature can also be used to allow for arbitrary, user-configured menus.
 
-![Image](https://github.com/user-attachments/assets/8cc02391-3276-4b50-a0f6-7013f3748e32)
+![Image](https://github.com/user-attachments/assets/766640cf-846c-4911-a25e-6bb284f58929)
 
 ## Features
 
