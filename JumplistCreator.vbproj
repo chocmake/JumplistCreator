@@ -22,9 +22,9 @@ Updated by chocmake (https://github.com/chocmake) from original `Jump_List.vbpro
 
     <!-- Canonical values for assembly file generation, in-program reference -->
     <CanonicalProductName>Jumplist Creator</CanonicalProductName>
-    <CanonicalFileVersion>0.1.1</CanonicalFileVersion>
+    <CanonicalFileVersion>0.1.2</CanonicalFileVersion>
     <!-- Padded file version required for app manifest else it'll error at runtime -->
-    <CanonicalFileVersionPadded>0.1.1.0</CanonicalFileVersionPadded>
+    <CanonicalFileVersionPadded>0.1.2.0</CanonicalFileVersionPadded>
     <CanonicalAssemblyVersion>$(CanonicalFileVersion)</CanonicalAssemblyVersion>
     <CanonicalCopyright>Copyright © 2021, 2026</CanonicalCopyright>
     <CanonicalGuid>29691578-7c88-453c-81db-e36ddaa460ed</CanonicalGuid>

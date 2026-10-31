@@ -260,6 +260,7 @@ Partial Public Class MainWindow
                 Dim workingDir As String = result.StartIn
                 Dim iconPath As String = FileUtilities.ResolvePath(result.IconPath)
                 Dim iconIndex As Integer? = Math.Max(If(result.IconIndex, 0), 0) ' wrapped in max to avoid negative indices
+                Dim isUrl As Boolean = False
 
                 Dim AdjustCountersIndices = Sub()
                     ' Account for change in list counts/indices
@@ -280,11 +281,14 @@ Partial Public Class MainWindow
                         ' Check if likely URL to prepend protocol if it's protocol-less (to avoid Windows Open With prompts) and add handler icon
                         Dim urlCheck = UrlParser.GetAbsoluteUri(targetPath)
                         If urlCheck.Item1 Then
+                            isUrl = True
                             targetPath = urlCheck.Item2.AbsoluteUri
                             item.IconPath = If(iconPath, UrlParser.GetSchemeHandlerPath(targetPath))
                             item.IconIndex = If(iconIndex, 0)
                         End If
                     End If
+
+                    ' Using the parent directory below as fallback working dir (like Windows' default LNK creation behavior) so programs that assume it launch as expected. If the target is a directory itself then the value does nothing anyway.
 
                     link = New JumpListLink(targetPath, item.Key) With {
                         .Arguments = arguments,
@@ -293,7 +297,7 @@ Partial Public Class MainWindow
                                           If(Not String.IsNullOrEmpty(iconPath),
                                              New IconReference(iconPath, iconIndex),
                                              IconParser.GetIcon(targetPath))),
-                        .WorkingDirectory = workingDir
+                        .WorkingDirectory = If(isUrl OrElse FileUtilities.IsEmptyOrValidDirectory(workingDir), workingDir, FileUtilities.GetParentPath(targetPath))
                     }
 
                     ' If this is the first key-value pair parsed and no jumplist category exists yet then create one

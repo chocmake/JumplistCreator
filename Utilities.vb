@@ -113,6 +113,11 @@ Public Module FileUtilities
         Return Path.GetPathRoot(Path.GetFullPath(input))
     End Function
 
+    Public Function IsEmptyOrValidDirectory(input As String) As Boolean
+        ' Added empty string condition so user can set an explicitly empty directory override if wanted (when used for working directory value this will inherit whatever the native working directory would be, like it does for LNKs).
+        Return input IsNot Nothing AndAlso (input = "" OrElse (Not String.IsNullOrEmpty(input) AndAlso Directory.Exists(input)))
+    End Function
+
     Public Function LoadEmbeddedImage(name As String) As Image
         Dim asm = Assembly.GetExecutingAssembly()
         Using s = asm.GetManifestResourceStream(name)
@@ -305,7 +310,7 @@ Public Module CommandParser
         Dim targetParent As String = GetParentPath(targetPath)
         targetPath = FileUtilities.ResolvePath(targetPath) ' resolve any relative path to absolute so if a startIn arg is defined doesn't change the target path be to relative to that working directory
 
-        If Not String.IsNullOrEmpty(startIn) AndAlso Directory.Exists(startIn) Then
+        If IsEmptyOrValidDirectory(startIn) Then
             newWorkingDir = startIn
         ElseIf Directory.Exists(targetParent) Then
             ' Set the working dir to that of the target path (otherwise it'll default to Jumplist Creator's directory due to enabling UseShellExecute in ProcessStartInfo below)
